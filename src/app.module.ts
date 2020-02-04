@@ -1,9 +1,12 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { RecetaModule } from './receta/receta.module';
+import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
-  imports: [],
+  imports: [RecetaModule,
+    MongooseModule.forRoot('mongodb://vivorra.es:27020/recetasV3')],
   controllers: [AppController],
   providers: [AppService],
 })
